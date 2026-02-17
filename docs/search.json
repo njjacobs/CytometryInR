@@ -1495,5 +1495,19 @@
     "title": "Week 1 Homework NJ",
     "section": "",
     "text": "Problem 1\nWe installed PeacoQC during this session, but we didn’t have time to explore what functions are present within the package. Using what you have learned about accessing documentation, figure out and list what functions it contains\n\n\nAnswer 1\n\nlibrary(PeacoQC)\nls(\"package:PeacoQC\")\n\n[1] \"PeacoQC\"        \"PeacoQCHeatmap\" \"PlotPeacoQC\"    \"RemoveDoublets\"\n[5] \"RemoveMargins\""
+  },
+  {
+    "objectID": "course/01_InstallingRPackages/homeworks/njjacobs/Week 1.html",
+    "href": "course/01_InstallingRPackages/homeworks/njjacobs/Week 1.html",
+    "title": "Week 1 Homework NJ",
+    "section": "",
+    "text": "We installed PeacoQC during this session, but we didn’t have time to explore what functions are present within the package. Using what you have learned about accessing documentation, figure out and list what functions it contains"
+  },
+  {
+    "objectID": "course/01_InstallingRPackages/homeworks/njjacobs/Week 1.html#answer-3",
+    "href": "course/01_InstallingRPackages/homeworks/njjacobs/Week 1.html#answer-3",
+    "title": "Week 1 Homework NJ",
+    "section": "Answer 3",
+    "text": "Answer 3\nBroom and cytoMEM installed easily without having to know if from CRAN or Bioconductor. I wasn’t able to install DillonHammill/CytoExploreR with pak method because of an error with package dependencies. I tried install.packages but the package was not available for this version of R."
   }
 ]
