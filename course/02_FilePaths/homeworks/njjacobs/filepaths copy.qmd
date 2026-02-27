@@ -1,0 +1,92 @@
+---
+Title: Homework Week 2 
+FileType: HTML
+Author: Natalie Jacobs 
+---
+# Week 2 Homework  
+
+# Problem 1 
+Plug in an external hard-drive or USB into your computer. Manually, create a folder within called “TargetFolder”. Try to programmatically specify the file path to identify the folders and files present on your external drive. Then, try to copy your .fcs files from their current folder on your desktop to the TargetFolder on your drive using R. Remember, just copy, no deletion, you need to walk before you can run :D
+
+# Answer 1  
+See screenshot of copied files in images folder 
+```{r}
+dir.exists("E:/")
+list.files("E:/", all.files = TRUE)                           
+```
+part 2 
+```{r}
+TargetPath <- "E:/TargetFolder"
+dir.exists(TargetPath)
+getwd()
+desktopPath <-"y:/documents/Week-2"
+fcs_folder <- file.path(desktopPath, "data")
+list.files(fcs_folder)
+fcs_files <- list.files(desktopPath, pattern = "\\.fcs$", full.names = TRUE, recursive = TRUE, ignore.case = TRUE)
+fcs_files
+length(fcs_files)
+list.dirs("E:/", recursive = FALSE)
+target_path <- file.path("E:/", "TargetFolder")
+dir.exists(target_path)
+file.copy(from = fcs_files, to = target_path)
+```
+I don't know why preview is showing FALSE  after file.copy(from = fcs_files, to = target_path) when it is showing TRUE on the console and the files successfully copied to the USB 
+# Problem 2
+ In this session, we used list.files() with the “full.names argument” set to TRUE, as well as the basename() function to identify specific files. But what if you wanted a particular directory. Run list.files() with “full.names argument” and “recursive” argument set to TRUE, and then search online to find an R function that would retrieve the “” individual directory folders.
+
+# Answer 2
+
+```{r}
+files <- list.files(path = ".",full.names = TRUE,recursive = TRUE)
+unique(dirname(files))
+```
+or
+
+```{r}
+list.dirs()
+```
+# Problem 3
+ R packages often come with internal datasets, that are typically used for use in the help documentation examples. These can be accessed through the use of the system.file() function. See an example below.
+
+system.file("extdata", package = "FlowSOM")
+
+Using what we have learned about file.path navigation, search your way down the file.directory of the FlowSOM and flowWorkspace packages, and identify any .fcs files that are present for use in the documentation.
+
+# Answer 3 
+For FlowSOM 
+```{r}
+flowSOM_path <- system.file(package = "FlowSOM")
+
+flowSOM_files <- list.files(flowSOM_path,
+                            pattern = "\\.fcs$",
+                            full.names = TRUE,
+                            recursive = TRUE,
+                            ignore.case = TRUE)
+
+flowSOM_files
+
+```
+For flowWorkspace
+
+```{r}
+flowWorkspace_path <- system.file(package = "flowWorkspace")
+
+flowWorkspace_files <- list.files(flowWorkspace_path,
+                                   pattern = "\\.fcs$",
+                                   full.names = TRUE,
+                                   recursive = TRUE,
+                                   ignore.case = TRUE)
+
+flowWorkspace_files
+
+```
+Returned 0 .fcs files. Have to go to companion package like flowWorkpaceData for eample datasets 
+Hardcoding way for my own reference
+```{r}
+system.file(".",package = "FlowSOM")
+CheckFiles <- "C:/Users/njjacobs/AppData/Local/Programs/R/R-4.5.2/library/FlowSOM/."
+system.file("extdata", package = "FlowSOM")
+files <- "C:/Users/njjacobs/AppData/Local/Programs/R/R-4.5.2/library/FlowSOM/extdata"
+list.files(files) 
+```
+There is a .fcs file in the FlowSOM extdata folder called 68983.fcs 
