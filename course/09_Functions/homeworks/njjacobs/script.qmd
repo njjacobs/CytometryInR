@@ -5,126 +5,126 @@ Title: It's Raining Functions
 --- 
 
 ```{r}
-# MyFirstFunction <- function(){
-#    message("Always spin-down your antibodies!")
-# }
+ MyFirstFunction <- function(){
+    message("Always spin-down your antibodies!")
+ }
 
-# MyFirstFunction()
+ MyFirstFunction()
 
-# MySecondFunction <- function(BestFluorophore){
-#    message("Unquestionably, the best fluorophore is ", BestFluorophore)
-# }
+ MySecondFunction <- function(BestFluorophore){
+    message("Unquestionably, the best fluorophore is ", BestFluorophore)
+ }
 
-# MySecondFunction(BestFluorophore = "APC")
+ MySecondFunction(BestFluorophore = "APC")
 
-# MyThirdFunction <- function(BestFluorophore, WorstFluorophore){
-#    message("Unquestionably, the best fluorophore is ", BestFluorophore)
-#    message("And by far, the worst fluorophore is ", WorstFluorophore)
-# }
+  MyThirdFunction <- function(BestFluorophore, WorstFluorophore){
+    message("Unquestionably, the best fluorophore is ", BestFluorophore)
+    message("And by far, the worst fluorophore is ", WorstFluorophore)
+ }
 
-# MyThirdFunction(BestFluorophore = "APC", WorstFluorophore = "PerCP-Cy5.5")
+ MyThirdFunction(BestFluorophore = "APC", WorstFluorophore = "PerCP-Cy5.5")
 
 # MyThirdFunction(BestFluorophore="APC")
 
-# MyFourthFunction <- function(BestFluorophore, WorstFluorophore="PerCP-Cy5.5"){
-#    message("Unquestionably, the best fluorophore is ", BestFluorophore)
-#    message("And by far, the worst fluorophore is ", WorstFluorophore)
-# }
+ MyFourthFunction <- function(BestFluorophore, WorstFluorophore="PerCP-Cy5.5"){
+    message("Unquestionably, the best fluorophore is ", BestFluorophore)
+    message("And by far, the worst fluorophore is ", WorstFluorophore)
+ }
 
-# MyFourthFunction(BestFluorophore="APC")
+ MyFourthFunction(BestFluorophore="APC")
 
-# MyFourthFunction(BestFluorophore="APC", WorstFluorophore="Zombie Aqua")
+ MyFourthFunction(BestFluorophore="APC", WorstFluorophore="Zombie Aqua")
 
-# Fluorophores <- c("BV421", "FITC", "PE", "APC")
-# str(Fluorophores)
+ Fluorophores <- c("BV421", "FITC", "PE", "APC")
+ str(Fluorophores)
 
-# MySecondFunction(BestFluorophore = Fluorophores[1])
+ MySecondFunction(BestFluorophore = Fluorophores[1])
 
-# MySecondFunction(BestFluorophore = Fluorophores[2])
+ MySecondFunction(BestFluorophore = Fluorophores[2])
 
-# MySecondFunction(BestFluorophore = Fluorophores[3])
+ MySecondFunction(BestFluorophore = Fluorophores[3])
 
-# MySecondFunction(BestFluorophore = Fluorophores[4])
+ MySecondFunction(BestFluorophore = Fluorophores[4])
 
-# for (Name in Fluorophores){
-#    MySecondFunction(BestFluorophore=Name)
-# }
+ for (Name in Fluorophores){
+    MySecondFunction(BestFluorophore=Name)
+ }
 
-# MySecondFunctionPartB <- function(BestFluorophore){
-#    Message <- paste0("Unquestionably, the best fluorophore is ", BestFluorophore)
-#    Message
-# }
+ MySecondFunctionPartB <- function(BestFluorophore){
+    Message <- paste0("Unquestionably, the best fluorophore is ", BestFluorophore)
+    Message
+ }
 
-# MyOutputList <- list()
+ MyOutputList <- list()
 
-# SavedOutputs <- for (Name in Fluorophores){
-#    InthMessage <- MySecondFunctionPartB(BestFluorophore=Name)
-#    MyOutputList[[Name]] <- InthMessage 
-# }
+ SavedOutputs <- for (Name in Fluorophores){
+    InthMessage <- MySecondFunctionPartB(BestFluorophore=Name)
+    MyOutputList[[Name]] <- InthMessage 
+ }
 
-# MyOutputList
+ MyOutputList
 
-# library(dplyr)
+ library(dplyr)
 
-# library(purrr)
+ library(purrr)
 
-# walk(.x=Fluorophores, .f=MySecondFunction)
+ walk(.x=Fluorophores, .f=MySecondFunction)
 
-# Outputs <- map(.x=Fluorophores, .f=MySecondFunction)
+ Outputs <- map(.x=Fluorophores, .f=MySecondFunction)
 
-# Outputs
+ Outputs
 
-# Outputs <- walk(.x=Fluorophores, .f=MySecondFunctionPartB)
-# Outputs
+ Outputs <- walk(.x=Fluorophores, .f=MySecondFunctionPartB)
+ Outputs
 
-# Outputs <- map(.x=Fluorophores, .f=MySecondFunctionPartB)
-# Outputs
+ Outputs <- map(.x=Fluorophores, .f=MySecondFunctionPartB)
+ Outputs
 
-# library(flowWorkspace)
+ library(flowWorkspace)
 
-# library(flowGate)
+ library(flowGate)
 
-# library(ggplot2)
-# library(ggcyto)
-# library(dplyr)
-# library(purrr)
+ library(ggplot2)
+ library(ggcyto)
+ library(dplyr)
+ library(purrr)
 
-# StorageLocation <- file.path("course", "09_Functions", "data") # Interactive path
+ StorageLocation <- file.path("course", "09_Functions", "data") # Interactive path
 
-# fcs_files <- list.files(StorageLocation, pattern=".fcs", full.names=TRUE)
+ fcs_files <- list.files(StorageLocation, pattern=".fcs", full.names=TRUE)
 
-# MyCytoset <- load_cytoset_from_fcs(fcs_files, transformation=FALSE, truncate_max_range=FALSE)
-# MyGatingSet <- GatingSet(MyCytoset)
+ MyCytoset <- load_cytoset_from_fcs(fcs_files, transformation=FALSE, truncate_max_range=FALSE)
+ MyGatingSet <- GatingSet(MyCytoset)
 
-# remotes::install_github("DavidRach/Luciernaga")
-# install.packages("plotly")
-# Plots <- Luciernaga::QC_ReferenceLibrary(FluorNameContains="APC$|PE$|Pacific Blue", 
-#    NumberDetectors=54, returnPlots=TRUE)[[2]]
-# plotly::ggplotly(Plots)
+ remotes::install_github("DavidRach/Luciernaga")
+ install.packages("plotly")
+ Plots <- Luciernaga::QC_ReferenceLibrary(FluorNameContains="APC$|PE$|Pacific Blue", 
+    NumberDetectors=54, returnPlots=TRUE)[[2]]
+ plotly::ggplotly(Plots)
 
-# MainDetectorsOnly <- c("V3-A", "B4-A", "R1-A")
+ MainDetectorsOnly <- c("V3-A", "B4-A", "R1-A")
 
-# Biexponential <- flowjo_biexp_trans(channelRange=4096, maxValue=262144,
-#     pos=4.5, neg=2, widthBasis=-500)
-# MyBiexTransform <- transformerList(MainDetectorsOnly, Biexponential)
-# transform(MyGatingSet, MyBiexTransform)
+ Biexponential <- flowjo_biexp_trans(channelRange=4096, maxValue=262144,
+     pos=4.5, neg=2, widthBasis=-500)
+ MyBiexTransform <- transformerList(MainDetectorsOnly, Biexponential)
+ transform(MyGatingSet, MyBiexTransform)
 
-# ggcyto(MyGatingSet[[1]], subset="root",
-# aes(x="V3-A", y="R1-A")) + geom_hex(bins=100)
+ ggcyto(MyGatingSet[[1]], subset="root",
+ aes(x="V3-A", y="R1-A")) + geom_hex(bins=100)
 
-# ggcyto(MyGatingSet[[1]], subset="root",
-# aes(x="V3-A", y="B4-A")) + geom_hex(bins=100)
+ ggcyto(MyGatingSet[[1]], subset="root",
+ aes(x="V3-A", y="B4-A")) + geom_hex(bins=100)
 
-# ggcyto(MyGatingSet[[1]], subset="root",
-# aes(x="R1-A", y="B4-A")) + geom_hex(bins=100)
+ ggcyto(MyGatingSet[[1]], subset="root",
+ aes(x="R1-A", y="B4-A")) + geom_hex(bins=100)
 
-# GatingTable <- tibble::tribble(
-#  ~filterId,    ~dims,                          ~subset,           
-#  "CD45",       list("B4-A", "SSC-A"),            "root",     
-#  "CD19",       list("V3-A", "SSC-A"),            "CD45",   
-#  "CD14",       list("R1-A", "SSC-A"),            "CD45", 
-#  "TandNKcells",  list("V3-A", "SSC-A"),            "CD45",
-# )
+ GatingTable <- tibble::tribble(
+  ~filterId,    ~dims,                          ~subset,           
+  "CD45",       list("B4-A", "SSC-A"),            "root",     
+  "CD19",       list("V3-A", "SSC-A"),            "CD45",   
+  "CD14",       list("R1-A", "SSC-A"),            "CD45", 
+  "TandNKcells",  list("V3-A", "SSC-A"),            "CD45",
+ )
 
 flowGate::gs_apply_gating_strategy(MyGatingSet, gating_strategy = GatingTable)
 ```
