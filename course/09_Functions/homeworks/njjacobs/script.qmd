@@ -127,4 +127,30 @@ Title: It's Raining Functions
  )
 
 flowGate::gs_apply_gating_strategy(MyGatingSet, gating_strategy = GatingTable)
+
+# levels of condition in preferred order
+name_condition1<- c("2999", "4972", "5067", "5163", "5180", "5182")
+name_condition2<- c("Screening", "Cycle 1 Day 1", "Cycle 2 Day 1")
+name_condition3<- c("No", "Yes")
+name_condition4<- c("Pelvic peritoneum", "Liver", "Adrenal", "Retroperitoneal lymph node", "Pelvic bone")
+name_condition5<- c("No", "Yes")
+name_condition6<- c("Hepatitis", "Colitis", "None")
+name_condition7<- c("None", "Responder", "Hepatitis", "Colitis")
+name_condition8<- c("2999 (1)", "4972 (6)", "5067 (4)", "5163 (2)", "5180 (3)", "5182 (5)")
+#name_condition9<- c("NR, Hepatitis", "NR, Colitis", "NR, no irAE", "R, no irAE")
+name_condition10<- c("1", "2")
+name_condition11<- c("2999", "4972", "5067", "5163a", "5163b", "5180", "5182")
+#name_Legend<- c("Hepatitis No", "Colitis No", "None No", "None Yes")
+
+cf$condition1<-  factor(cf$condition1, levels = name_condition1)
+cf$condition2<-  factor(cf$condition2, levels = name_condition2)
+cf$condition3<-  factor(cf$condition3, levels = name_condition3)
+cf$condition4<-  factor(cf$condition4, levels = name_condition4)
+cf$condition5<-  factor(cf$condition5, levels = name_condition5)
+cf$condition6<-  factor(cf$condition6, levels = name_condition6)
+cf$condition7<-  factor(cf$condition7, levels = name_condition7)
+cf$condition8<-  factor(cf$condition8, levels = name_condition8)
+#cf$condition9<-  factor(cf$condition9, levels = name_condition9)
+cf$condition10<-  factor(cf$condition10, levels = name_condition10)
+cf$condition11<-  factor(cf$condition11, levels = name_condition11)
 ```
